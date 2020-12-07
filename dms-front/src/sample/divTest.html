@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pub {
+            background-color: yellow;
+            /*position: absolute;*/
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            /*height: fit-content;*/
+            padding: 30px;
+
+        }
+        .sub {
+            /*background: red;*/
+            position: fixed;
+            background-color: rgba(255,255,255,.9);
+            margin: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            -webkit-transition: opacity .3s;
+        }
+
+        .main {
+            background: blue;
+            position: relative!important;
+
+        }
+    </style>
+</head>
+<body class="main">
+    <div class="pub">111</div>
+<!--    <div class="sub">222</div>-->
+</body>
+</html>

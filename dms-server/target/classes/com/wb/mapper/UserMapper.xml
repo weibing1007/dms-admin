@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wb.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wb.model.User">
+    <id column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="confirmpwd" jdbcType="VARCHAR" property="confirmpwd" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="idtype" jdbcType="VARCHAR" property="idtype" />
+    <result column="idno" jdbcType="VARCHAR" property="idno" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="makedate" jdbcType="DATE" property="makedate" />
+    <result column="maketime" jdbcType="VARCHAR" property="maketime" />
+    <result column="modifydate" jdbcType="DATE" property="modifydate" />
+    <result column="modifytime" jdbcType="VARCHAR" property="modifytime" />
+    <result column="ext1" jdbcType="INTEGER" property="ext1" />
+    <result column="ext2" jdbcType="VARCHAR" property="ext2" />
+    <result column="ext3" jdbcType="VARCHAR" property="ext3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, username, password, confirmpwd, role, department, sex, birthday, idtype, 
+    idno, mobile, email, makedate, maketime, modifydate, modifytime, ext1, ext2, ext3
+  </sql>
+  
+  <!-- 用户注册 -->
+  <insert id="userRegister" parameterType="com.wb.model.User">
+    insert into tb_user (userid, username, password, 
+      confirmpwd, role, department, 
+      sex, birthday, idtype, 
+      idno, mobile, email, 
+      makedate, maketime, modifydate, 
+      modifytime, ext1, ext2, 
+      ext3)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{confirmpwd,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{idtype,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{makedate,jdbcType=DATE}, #{maketime,jdbcType=VARCHAR}, #{modifydate,jdbcType=DATE}, 
+      #{modifytime,jdbcType=VARCHAR}, #{ext1,jdbcType=INTEGER}, #{ext2,jdbcType=VARCHAR}, 
+      #{ext3,jdbcType=VARCHAR})
+  </insert>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wb.model.User">
+    insert into tb_user (userid, username, password, 
+      confirmpwd, role, department, 
+      sex, birthday, idtype, 
+      idno, mobile, email, 
+      makedate, maketime, modifydate, 
+      modifytime, ext1, ext2, 
+      ext3)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{confirmpwd,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{idtype,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{makedate,jdbcType=DATE}, #{maketime,jdbcType=VARCHAR}, #{modifydate,jdbcType=DATE}, 
+      #{modifytime,jdbcType=VARCHAR}, #{ext1,jdbcType=INTEGER}, #{ext2,jdbcType=VARCHAR}, 
+      #{ext3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wb.model.User">
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="confirmpwd != null">
+        confirmpwd,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="idtype != null">
+        idtype,
+      </if>
+      <if test="idno != null">
+        idno,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="makedate != null">
+        makedate,
+      </if>
+      <if test="maketime != null">
+        maketime,
+      </if>
+      <if test="modifydate != null">
+        modifydate,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+      <if test="ext1 != null">
+        ext1,
+      </if>
+      <if test="ext2 != null">
+        ext2,
+      </if>
+      <if test="ext3 != null">
+        ext3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmpwd != null">
+        #{confirmpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null">
+        #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null">
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="makedate != null">
+        #{makedate,jdbcType=DATE},
+      </if>
+      <if test="maketime != null">
+        #{maketime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=DATE},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null">
+        #{ext1,jdbcType=INTEGER},
+      </if>
+      <if test="ext2 != null">
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null">
+        #{ext3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wb.model.User">
+    update tb_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmpwd != null">
+        confirmpwd = #{confirmpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null">
+        idtype = #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null">
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="makedate != null">
+        makedate = #{makedate,jdbcType=DATE},
+      </if>
+      <if test="maketime != null">
+        maketime = #{maketime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null">
+        modifydate = #{modifydate,jdbcType=DATE},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null">
+        ext1 = #{ext1,jdbcType=INTEGER},
+      </if>
+      <if test="ext2 != null">
+        ext2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null">
+        ext3 = #{ext3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wb.model.User">
+    update tb_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      confirmpwd = #{confirmpwd,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      idtype = #{idtype,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      makedate = #{makedate,jdbcType=DATE},
+      maketime = #{maketime,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=DATE},
+      modifytime = #{modifytime,jdbcType=VARCHAR},
+      ext1 = #{ext1,jdbcType=INTEGER},
+      ext2 = #{ext2,jdbcType=VARCHAR},
+      ext3 = #{ext3,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

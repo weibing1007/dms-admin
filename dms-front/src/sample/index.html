@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入 http-vue-loader -->
+<!--    <script src="https://unpkg.com/http-vue-loader"></script>-->
+</head>
+<body>
+<!--    <div id="app">-->
+<!--        <my-component></my-component>-->
+<!--    </div>-->
+    <div>
+        <section ref="print">
+            打印内容
+            <div class="no-print">不要打印我</div>
+        </section>
+        <button onclick="print();">打印</button>
+    </div>
+
+    <script>
+        import Print from '../plugs/print';
+        // import printTest from "./printTest"
+        // 使用httpVueLoader
+        // Vue.use(httpVueLoader);
+
+        new Vue({
+            el: '#app',
+            // data: function () {
+            //     return { visible: false }
+            // },
+            // components: {
+                // 将组建加入组建库
+                // 'my-component': 'url: ./'
+                // 'my-component': printTest
+            // }
+        })
+    </script>
+</body>
+</html>

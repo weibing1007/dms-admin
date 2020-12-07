@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        // 1.向数组的末尾添加一个或多个元素，并返回新的长度
+        function pushElement() {
+            var arr = new Array(3)
+            arr[0] = "George"
+            arr[1] = "John"
+            arr[2] = "Thomas"
+
+            document.write(arr + "<br />")
+            // 向数组的末尾添加一个或多个元素，并返回新的长度
+            document.write(arr.push("James") + "<br />")
+            document.write(arr)
+        }
+
+        // 2.删除并返回第一个元素
+        function shiftElement() {
+            var arr = new Array(3)
+            arr[0] = "George"
+            arr[1] = "John"
+            arr[2] = "Thomas"
+
+            document.write(arr + "<br />")
+            // 删除并返回第一个元素
+            document.write(arr.shift() + "<br />")
+            document.write(arr)
+        }
+
+        // 3.删除并返回第一个元素（Array.some()）
+        var ages = [4, 12, 16, 20];
+        function checkAdult(age) {
+            return age >= document.getElementById("ageToCheck").value;
+        }
+
+        function myFunction() {
+            // 检查是否有元素大于18
+            document.getElementById("demo").innerHTML = ages.some(checkAdult);
+        }
+
+    </script>
+</head>
+<body>
+    <!-- 3.删除并返回第一个元素 -->
+    <p>最小年龄: <input type="number" id="ageToCheck" value="18"></p>
+    <button onclick="myFunction()">点我</button>
+    <p>判断结果: <span id="demo"></span></p>
+</body>
+</html>
