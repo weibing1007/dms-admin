@@ -1,5 +1,5 @@
 {
-  "name": "element-demo",
+  "name": "dms-master",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -29,6 +29,7 @@
     "element-theme": "^2.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "path": "^0.12.7",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-i18n": "^8.15.1",
     "vue-template-compiler": "^2.6.10"

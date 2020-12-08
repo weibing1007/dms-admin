@@ -1,6 +1,18 @@
 // vue.config.js
 // const proxy = require('http-proxy-middleware');
+const path = require("path");
+function resolve(dir) {
+    return path.join(__dirname, dir);
+}
 module.exports = {
+    // 路径别名
+    chainWebpack: config => {
+        config.resolve.alias
+            .set("@", resolve("src"))
+            .set("assets", resolve("src/assets"))
+            .set("components", resolve("src/components"))
+            .set("public", resolve("public"));
+    },
     // 服务代理
     devServer: {
         // proxy: 'http://localhost:4000'

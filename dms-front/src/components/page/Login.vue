@@ -173,7 +173,8 @@
     .login-main {
         /*background-color: darkcyan;*/
         background-color: black;
-        background-image: url("../login.jpg");
+        background-image: url("../../assets/image/login.jpg");
+        /*background-image: url("~assets/image/login.jpg");*/
         background-size:100% 50%;
         background-repeat:no-repeat;
         background-position: center;

@@ -83,7 +83,8 @@
     .wb_content {
         /*background-color: #E9EEF3;*/
         /*background-color: #f0f0f0;*/
-        background-color: #F4F5F8;
+        /*background-color: #F4F5F8;*/
+        background-color: #E0E0E0;
         position: absolute;
         left: 0px;
         right: 0px;
